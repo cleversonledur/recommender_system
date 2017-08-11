@@ -21,5 +21,4 @@ If you receive any error message, possibly is due to dependencies leak. You must
 1. https://www.analyticsvidhya.com/blog/2016/06/quick-guide-build-recommendation-engine-python/
 1. http://www.salemmarafi.com/code/collaborative-filtering-with-python/
 1. http://www.data-mania.com/blog/recommendation-system-python/
-1. http://www.salemmarafi.com/code/collaborative-filtering-with-python/
 1. http://dataaspirant.com/2015/05/25/collaborative-filtering-recommendation-engine-implementation-in-python/
