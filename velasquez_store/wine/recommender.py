@@ -30,6 +30,10 @@ def get_recommendations(cpf, customers, purchases):
 			_products.update({product['produto'] : total})
 		dataset.update({ customer['cpf'] : _products })
 
+	return similarity_score(dataset, cpf, '000.000.000-09')
+
+	return most_similar_users(dataset, cpf,4)
+
 	return user_recommendations(dataset,cpf)
 
 
