@@ -5,15 +5,8 @@ from wine.data_loader import *
 
 
 def list(request):
-	# for customer in customers:
-	# 	customer.update({'total_purchases' : get_total_purchases(customer, purchases) 		})
-	# 	customer.update({'maior_2016'      : get_unique_compra(customer, purchases, 2016) 	})
-	# 	customer.update({'fidelidade' 	   : get_fidelidade(customer, purchases) 			})
-	# return None
-
+	
 	(customers, purchases) = load_data()
-
-	#process_customers(customers, purchases)
 
 	context = {
 		'content' : None,
@@ -21,6 +14,7 @@ def list(request):
 		'customers' : customers ,
 	}	
 	return render(request, 'customer.html', context)
+
 
 def purchases(request):
 
@@ -38,6 +32,7 @@ def purchases(request):
 	}
 	return render(request, 'customer.html', context)
 
+
 def unique (request):
 
 	(customers, purchases) = load_data()
@@ -54,6 +49,7 @@ def unique (request):
 		'customers' 	: sorted(customers, key=lambda k: k['maior_2016'],reverse=True) ,
 	}
 	return render(request, 'customer.html', context)
+
 
 def fidelity (request):
 
