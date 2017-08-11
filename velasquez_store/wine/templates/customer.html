@@ -47,7 +47,7 @@
 						<th>CPF</th>
 						<th>Nome</th>
 						<th>{{ value }}</th>
-
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -58,7 +58,7 @@
 						<td>{{ customer.cpf }}</td>
 						<td>{{ customer.nome}}</td>
 						<td>R$ {{ customer.maior_2016|floatformat:2 }} </td>
-
+<td><a href="{% url 'recommend_view' %}?customer={{ customer.cpf}}" type="button" class="btn btn-primary">Recomendações</a></td>
 					</tr>
 				{% endfor %}
 				</tbody>
@@ -72,6 +72,7 @@
 						<th>CPF</th>
 						<th>Nome</th>
 						<th>{{ value }}</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -82,7 +83,7 @@
 						<td>{{ customer.cpf }}</td>
 						<td>{{ customer.nome}}</td>
 						<td>R$ {{ customer.total_purchases|floatformat:2 }} </td>
-
+<td><a href="{% url 'recommend_view' %}?customer={{ customer.cpf}}" type="button" class="btn btn-primary">Recomendações</a></td>
 					</tr>
 				{% endfor %}
 				</tbody>
@@ -96,7 +97,7 @@
 						<th>CPF</th>
 						<th>Nome</th>
 						<th>{{ value }}</th>
-
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -107,7 +108,7 @@
 						<td>{{ customer.cpf }}</td>
 						<td>{{ customer.nome}}</td>
 						<td>{{ customer.fidelidade }} </td>
-
+						<td><a href="{% url 'recommend_view' %}?customer={{ customer.cpf}}" type="button" class="btn btn-primary">Recomendações</a></td>
 					</tr>
 				{% endfor %}
 				</tbody>

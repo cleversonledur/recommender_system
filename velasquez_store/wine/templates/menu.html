@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="#">Velasquez Store</a>
     </div>
     <ul class="nav navbar-nav">
-      <li {% if content == 'main' %} class="active" {% endif %}> <a href="#">Home</a></li>
+      <li {% if content == 'main' %} class="active" {% endif %}> <a href="{% url 'customerall_view' %}">Home</a></li>
       <li {% if content == 'purchases' %} class="active" {% endif %}><a href="{% url 'purchases_view'%}">Listar Clientes (Maior Valor Compra)</a></li>
       <li {% if content == 'unique' %} class="active" {% endif %}><a href="{% url 'unique_view'%}">Listar Clientes (Maior Compra Única)</a></li>
       <li {% if content == 'fidelity' %} class="active" {% endif %}><a href="{% url 'fidelity_view'%}">Listar Clientes (Mais Fieis)</a></li>

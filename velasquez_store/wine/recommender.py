@@ -25,14 +25,12 @@ def get_recommendations(cpf, customers, purchases):
 			for purchase in purchases:
 				if cpf_compare(purchase['cliente'], customer['cpf']):
 					for item in purchase['itens']:
-						if product==item:
-							total+=1
+						if product['produto']==item['produto']:
+							if product['variedade']==item['variedade']:
+								if product['categoria']==item['categoria']:
+									total+=1
 			_products.update({product['produto'] : total})
 		dataset.update({ customer['cpf'] : _products })
-
-	return similarity_score(dataset, cpf, '000.000.000-09')
-
-	return most_similar_users(dataset, cpf,4)
 
 	return user_recommendations(dataset,cpf)
 
