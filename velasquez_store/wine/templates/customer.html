@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Velasquez Store</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+</head>
+<body>
+	{% include 'menu.html'%}
+
+	<div class="container-fluid">
+		
+		<div class="row content">
+		{% if not content %}
+		<h1>Todos os clientes</h1>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+					<th>Id</th>
+						<th>CPF</th>
+						<th>Nome</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for customer in customers %}
+
+					<tr>
+						<td>{{ customer.id }}</td>
+						<td>{{ customer.cpf }}</td>
+						<td>{{ customer.nome}}</td>
+						<td><a href="{% url 'recommend_view' %}?customer={{ customer.cpf}}" type="button" class="btn btn-primary">Recomendações</a></td>
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		{% elif content == 'unique' %}
+		<h3>Cliente com maior compra única no último ano (2016)</h3>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+					<th>Id</th>
+						<th>CPF</th>
+						<th>Nome</th>
+						<th>{{ value }}</th>
+
+					</tr>
+				</thead>
+				<tbody>
+				{% for customer in customers %}
+
+					<tr>
+						<td>{{ customer.id }}</td>
+						<td>{{ customer.cpf }}</td>
+						<td>{{ customer.nome}}</td>
+						<td>R$ {{ customer.maior_2016|floatformat:2 }} </td>
+
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		{% elif content == 'purchases' %}
+		<h1>Clientes mais fiéis</h1>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+					<th>Id</th>
+						<th>CPF</th>
+						<th>Nome</th>
+						<th>{{ value }}</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for customer in customers %}
+
+					<tr>
+						<td>{{ customer.id }}</td>
+						<td>{{ customer.cpf }}</td>
+						<td>{{ customer.nome}}</td>
+						<td>R$ {{ customer.total_purchases|floatformat:2 }} </td>
+
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		{% elif content == 'fidelity' %}
+		<h1>Todos os clientes</h1>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+					<th>Id</th>
+						<th>CPF</th>
+						<th>Nome</th>
+						<th>{{ value }}</th>
+
+					</tr>
+				</thead>
+				<tbody>
+				{% for customer in customers %}
+
+					<tr>
+						<td>{{ customer.id }}</td>
+						<td>{{ customer.cpf }}</td>
+						<td>{{ customer.nome}}</td>
+						<td>{{ customer.fidelidade }} </td>
+
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+		{% endif %}
+
+
+
+			
+		</div>
+	</div>
+
+	<footer class="container-fluid">
+		<p>Created by Cleverson Ledur (cleversonledur@gmail.com)</p>
+	</footer>
+
+</body>
+</html>
